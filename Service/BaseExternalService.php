@@ -10,12 +10,9 @@
 namespace App\Elvandar\ecbundle\Service;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
 class BaseExternalService extends Controller
 {
-    use ContainerAwareTrait;
-
     protected $sites;
     protected $routes;
 
@@ -26,9 +23,9 @@ class BaseExternalService extends Controller
     /**
      * BaseExternalService constructor.
      */
-    public function __construct()
+    public function __construct($siteList, $routeList)
     {
-        $this->sites = $this->container->getParameter('ec.site_list');
-        $this->routes = $this->container->getParameter('ec.route_list');
+        $this->sites = $siteList;
+        $this->routes = $routeList;
     }
 }

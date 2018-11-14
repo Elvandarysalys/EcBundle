@@ -26,13 +26,11 @@ class ElvandarEcExtension extends Extension
 
         foreach ($sites as $site) {
             $site_list[] = $site;
-            $route_list = $data[$site]['routes'];
+            $route_list[$site] = $data[$site]['routes'];
         }
 
         $container->register('ec', Externals::class)
-        ->setArgument('site_list', $site_list)
-        ->setArgument('route_list', $route_list);
-
-
+            ->addArgument($site_list)
+            ->addArgument($route_list);
     }
 }
