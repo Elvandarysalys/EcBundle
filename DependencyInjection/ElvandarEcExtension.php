@@ -18,13 +18,20 @@ class ElvandarEcExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-         var_dump($configs);die;
-//        $bundleDirectory = strstr(__DIR__, 'DependencyInjection', true);
-//        $loader = new YamlFileLoader(
-//            $container,
-//            new FileLocator('config/packages')
-//        );
-//
-//        $loader->load('elvandar_ec.yaml');
+        /** @var siteModel[] $sites */
+        $site_list = [];
+        $route_list = [];
+
+        $data = $configs[0];
+
+        $sites = array_keys($data);
+
+        foreach ($sites as $site) {
+            $site_list[] = $site;
+            $route_list = $data[$site]['routes'];
+        }
+
+        $container->setParameter('ec.site_list', $site_list);
+        $container->setParameter('ec.route_list', $route_list);
     }
 }

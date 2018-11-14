@@ -9,19 +9,30 @@
 
 namespace App\Elvandar\ecbundle\Service;
 
+use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Yaml\Yaml;
 
 class Externals
 {
-    const CONFIG_TYPE_YML = 'yml';
-    const CONFIG_TYPE_YAML = 'yaml';
+    private $container;
 
     const CONFIG_ARRAY_STATUS = 'status';
     const CONFIG_ARRAY_TYPE = 'type';
     const CONFIG_ARRAY_ERROR = 'error';
 
-    const PATH_1 = '../app/config/ec_bundle.yml';
-    const PATH_2 = '../app/config/elvandar_ec.yaml';
+    const SERVICE_SITES = 'ec.site_list';
+    const SERVICE_ROUTES = 'ec.route_list';
+
+    /**
+     * Externals constructor.
+     * @param $container
+     */
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
 
     private function configExist()
     {
@@ -61,6 +72,11 @@ class Externals
         }
 
         return $routes;
+    }
+
+    public function test()
+    {
+        return $this->container->getParameter('ec.site_list');
     }
 
     public function getRoute($route)
