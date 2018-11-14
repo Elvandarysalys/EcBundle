@@ -1,0 +1,8 @@
+{
+  "name": "Elvandar/EcBundle",
+  "type": "symfony-bundle",
+  "description": "A simple bundle to make communication with external websites easy",
+  "require": {
+    "php": "^7.0"
+  }
+}
