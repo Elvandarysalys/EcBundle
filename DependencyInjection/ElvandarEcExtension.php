@@ -9,16 +9,14 @@
 
 namespace App\Elvandar\ecbundle\DependencyInjection;
 
-use Symfony\Component\Config\FileLocator;
+use App\Elvandar\ecbundle\Service\Externals;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class ElvandarEcExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-        /** @var siteModel[] $sites */
         $site_list = [];
         $route_list = [];
 
@@ -31,7 +29,15 @@ class ElvandarEcExtension extends Extension
             $route_list = $data[$site]['routes'];
         }
 
-        $container->setParameter('ec.site_list', $site_list);
-        $container->setParameter('ec.route_list', $route_list);
+//        $container->setParameter('ec.site_list', $site_list);
+//        $container->setParameter('ec.route_list', $route_list);
+
+        $container->register('ec', Externals::class)
+//        ->addArgument('site_list')
+//        ->addArgument('route_list')
+        ->setArgument('site_list', $site_list)
+        ->setArgument('route_list', $route_list);
+
+
     }
 }
