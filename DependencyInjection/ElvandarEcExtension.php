@@ -29,12 +29,7 @@ class ElvandarEcExtension extends Extension
             $route_list = $data[$site]['routes'];
         }
 
-//        $container->setParameter('ec.site_list', $site_list);
-//        $container->setParameter('ec.route_list', $route_list);
-
         $container->register('ec', Externals::class)
-//        ->addArgument('site_list')
-//        ->addArgument('route_list')
         ->setArgument('site_list', $site_list)
         ->setArgument('route_list', $route_list);
 
