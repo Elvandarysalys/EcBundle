@@ -28,4 +28,36 @@ class BaseExternalService extends Controller
         $this->sites = $siteList;
         $this->routes = $routeList;
     }
+
+    /**
+     * The site String is the name of the site.
+     * If no site is found the function returns false
+     *
+     * @param string $site
+     * @return array|bool
+     */
+    protected function getAllBySite(string $site)
+    {
+        if ($this->siteExist($site)) {
+            if (array_key_exists($site, $this->routes)) {
+                return $this->routes[$site];
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Allow to know if the requested site exist
+     *
+     * @param $site
+     * @return bool
+     */
+    protected function siteExist($site)
+    {
+        if (false === array_search($site, $this->sites)) {
+            return false;
+        }
+        return true;
+    }
 }
