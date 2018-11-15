@@ -1,5 +1,5 @@
 {
-  "name": "Elvandar/EcBundle",
+  "name": "elvandar/ec-bundle",
   "type": "symfony-bundle",
   "description": "A simple bundle to make communication with external websites easier",
   "require": {
