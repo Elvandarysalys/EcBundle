@@ -51,7 +51,14 @@ class Externals extends BaseExternalService
         return $this->getOneBySite($route, $site);
     }
 
-    public function redirectToExternal(string $route)
+    public function redirectToExternal(string $route, string $site = null)
     {
+        try {
+            $route = $this->getRoute($route, $site);
+        }catch (Exception $e){
+            throw $e;
+        }
+
+        return $this->redirect($route);
     }
 }

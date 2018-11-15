@@ -9,10 +9,13 @@
 
 namespace App\Elvandar\ecbundle\Service;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
-class BaseExternalService extends Controller
+class BaseExternalService implements ContainerAwareInterface
 {
+    use ContainerAwareTrait;
+
     protected $sites;
     protected $routes;
 
