@@ -1,8 +1,20 @@
 {
   "name": "Elvandar/EcBundle",
   "type": "symfony-bundle",
-  "description": "A simple bundle to make communication with external websites easy",
+  "description": "A simple bundle to make communication with external websites easier",
   "require": {
     "php": "^7.0"
-  }
+  },
+  "keywords": [
+    "Symfony",
+    "CMS"
+  ],
+  "homepage": "https://github.com/Elvandarysalys/EcBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gwilherm-Alan Turpin (Elvandar / ElvandarYsalys)",
+      "email": "gwilherm.turpin@gmail.com"
+    }
+  ]
 }
