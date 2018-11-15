@@ -68,14 +68,14 @@ or redirect to the desired route :
 ```
 Bboth the ```redirectToEcternal``` and ```getRoute``` methods follow the same parameters rules:
 
-# 1 - premier paramètre
+# 1 - First parameter
 
 The first parameter is the name of your route. 
 
 For example inside the example configuration, the name for `http://second-site/blog` is `blog`.
 
 This parameter is required.
-# 2 - second paramètre
+# 2 - Second parameter
 
 The second parameter is the name of the site.
 It is not required but will be needed if multiple roads have the same name. 
