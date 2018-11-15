@@ -15,7 +15,9 @@ class Externals extends BaseExternalService
 {
     public function getRoute(string $route)
     {
-        var_dump($this->siteExist($route));die;
+        $route = 'name';
+        $site = 'site1';
+        var_dump($this->getOneBySite($route, $site));die;
         return array_search($route, $this->routes);
     }
 
